@@ -186,6 +186,27 @@
     .rows h3 { font-size: var(--v-t-lg); }
   }
 
+  /* ---- мастера: имена и слова гостей из отзывов ----------------------------- */
+  .masters__head { display: grid; gap: var(--v-3); max-width: 46rem; margin-bottom: var(--v-7); }
+  .masters__head .v-display--lg { font-size: clamp(2.2rem, 1.3rem + 2.8vw, 3.9rem); }
+  .masters__head p { color: var(--v-ink-soft); max-width: 46ch; text-wrap: pretty; }
+  .masters__list li { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--v-3) var(--v-9); align-items: baseline;
+    padding: var(--v-6) 0; border-top: 1px solid var(--v-hair); }
+  .masters__list li:last-child { border-bottom: 1px solid var(--v-hair); }
+  .masters__name { font-family: var(--v-font-display); font-weight: 500; font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.6rem); line-height: 1; letter-spacing: .01em; }
+  .masters__quote { font-size: var(--v-t-lg); line-height: 1.4; max-width: 44ch; text-wrap: pretty; }
+  .masters__meta { margin-top: var(--v-3); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .masters__meta b { color: var(--v-ink); font-weight: 600; }
+  .masters__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--v-3) var(--v-5); margin-top: var(--v-7); }
+  .masters__cta span { font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 44ch; }
+  @media (max-width: 860px) {
+    .masters__head { margin-bottom: var(--v-6); }
+    .masters__list li { grid-template-columns: 1fr; gap: var(--v-2); padding: var(--v-5) 0; }
+    .masters__meta { font-size: .95rem; }
+    .masters__cta { margin-top: var(--v-6); }
+    .masters__cta span { font-size: .95rem; }
+  }
+
   /* ---- акт 3 · работы: три кадра с карточки --------------------------------- */
   .works__head { display: grid; gap: var(--v-3); max-width: 46rem; margin-bottom: var(--v-7); }
   .works__head .v-display--lg { font-size: clamp(2.2rem, 1.3rem + 2.8vw, 3.9rem); }
@@ -411,8 +432,53 @@
 
     <div class="checker" aria-hidden="true"></div>
 
+    <!-- 2б · МАСТЕРА: имена из отзывов, запись к мастеру -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#151514" id="mastera" aria-label="Мастера">
+      <div class="v-wrap masters">
+        <div class="masters__head" data-v-in data-v-stagger="60">
+          <span class="v-label">Мастера</span>
+          <h2 class="v-display v-display--lg">К кому записываются в «Толстом»</h2>
+          <p>Имена и слова взяты из отзывов на Яндекс.Картах. Мастеров и свободное время видно в онлайн-записи.</p>
+        </div>
+        <ul class="masters__list" data-v-in data-v-stagger="80">
+          <li>
+            <span class="masters__name">Семён</span>
+            <div>
+              <p class="masters__quote">«хожу к одному и тому же барберу, Семён прекрасно стрижет, всегда подскажет где и как лучше всего»</p>
+              <p class="masters__meta"><b>Andrey Safonoff</b> · 7 октября</p>
+            </div>
+          </li>
+          <li>
+            <span class="masters__name">Валерия</span>
+            <div>
+              <p class="masters__quote">«Отдельное спасибо мастеру Валерии. Она сразу поняла, что именно я хочу, предложила пару идей по стрижке, которые идеально подошли»</p>
+              <p class="masters__meta"><b>Виталий</b> · 25 августа 2025</p>
+            </div>
+          </li>
+          <li>
+            <span class="masters__name">Ирина</span>
+            <div>
+              <p class="masters__quote">«Отличное обслуживание и качество стрижки, у мастера Ирины.»</p>
+              <p class="masters__meta"><b>Валерий Тимин</b> · 21 апреля</p>
+            </div>
+          </li>
+          <li>
+            <span class="masters__name">Мариам</span>
+            <div>
+              <p class="masters__quote">«Подстригаюсь у Мариам - это мастер с большой буквы. Профессионал своего дела!»</p>
+              <p class="masters__meta"><b>Александр</b> · 19 декабря 2025</p>
+            </div>
+          </li>
+        </ul>
+        <div class="masters__cta" data-v-in data-v-in-self>
+          <a class="v-btn" href="https://b24097.yclients.com/company/41731/personal/select-master?o=" target="_blank" rel="noopener">Выбрать мастера</a>
+          <span>Откроется онлайн-запись: мастер, день и время.</span>
+        </div>
+      </div>
+    </section>
+
     <!-- 3 · ДОКАЗАТЕЛЬСТВО: работы с карточки -->
-    <section class="v-section" data-v-act="flow" data-v-drift="#151514" id="raboty" aria-label="Работы">
+    <section class="v-section" data-v-act="flow" data-v-drift="#1c1c1a" id="raboty" aria-label="Работы">
       <div class="v-wrap works">
         <div class="works__head" data-v-in data-v-stagger="60">
           <span class="v-label">Работы</span>
@@ -437,7 +503,7 @@
     </section>
 
     <!-- 4 · ВЫБОР: прайс -->
-    <section class="v-section" data-v-act="flow" data-v-drift="#1c1c1a" id="ceny" aria-label="Услуги и цены">
+    <section class="v-section" data-v-act="flow" data-v-drift="#151514" id="ceny" aria-label="Услуги и цены">
       <div class="v-wrap prices">
         <div>
           <div class="prices__head" data-v-in data-v-stagger="60">
@@ -478,7 +544,7 @@
     <div class="checker" aria-hidden="true"></div>
 
     <!-- 5 · ВХОД и ЗАЛ: фасад и слова гостей -->
-    <section class="v-section" data-v-act="flow" data-v-drift="#151514" id="atmosfera" aria-label="Вход и зал">
+    <section class="v-section" data-v-act="flow" data-v-drift="#1c1c1a" id="atmosfera" aria-label="Вход и зал">
       <div class="v-wrap">
         <figure class="atm__fig">
           <div class="v-layer" data-v-parallax="0.4">
@@ -502,7 +568,7 @@
     </section>
 
     <!-- 6 · ДОВЕРИЕ: отзывы с Яндекс.Карт -->
-    <section class="v-section" data-v-act="flow" data-v-drift="#1c1c1a" id="otzyvy" aria-label="Отзывы с Яндекс.Карт">
+    <section class="v-section" data-v-act="flow" data-v-drift="#151514" id="otzyvy" aria-label="Отзывы с Яндекс.Карт">
       <div class="v-wrap reviews">
         <div class="reviews__head" data-v-in data-v-stagger="60">
           <div>
